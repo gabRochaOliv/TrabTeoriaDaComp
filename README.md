@@ -15,7 +15,9 @@ Como definido no próprio "arquivo_do_automato.aut" o estado inicial o estado fi
 4. bbbbbbbb;0
 5. aaaaaaaaaaaa;0
 6. aaaaabaaaaa;1
+   
 Assim, fornecendo no "arquivo_de_saida.out" as seguintes saídas:
+
 1. ba;1;1;0.091
 2. aaaabbbbbaaaaa;1;1;0.015
 3. abababab;0;0;0.006
