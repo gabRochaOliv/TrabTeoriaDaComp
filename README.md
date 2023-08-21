@@ -2,7 +2,7 @@
  
 ## Simulador de Autômato Finito Determinístico (AFD) 
 ### Descrição da Ferramenta 
-Essa ferramenta foi feita JavaScript. Utilizando a biblioteca fs para manipular arquivos. As funções readJSONFile e readCSVFile lêem arquivos JSON e CSV para definir o autômato e os testes. runAutomaton simula execução, seguindo transições até um estado final. A função principal, main, processa entradas e valida argumentos. Os testes são medidos com process.hrtime(). Resultados são registrados e escritos em CSV.
+Essa ferramenta foi feita em JavaScript. Utilizando a biblioteca fs para manipular arquivos. As funções readJSONFile e readCSVFile lêem arquivos JSON e CSV para definir o autômato e os testes. runAutomaton simula execução, seguindo transições até um estado final. A função principal, main, processa entradas e valida argumentos. Os testes são medidos com process.hrtime(). Resultados são registrados e escritos em CSV.
  
 ### Seu Funcionamento
 Em resumo, o simulador lê definições e entradas de autômatos, executa os autômatos nas entradas, registra os resultados e tempos de execução, e finalmente escreve esses resultados em um arquivo. 
