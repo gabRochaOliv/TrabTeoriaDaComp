@@ -30,7 +30,7 @@ function runAutomaton(automaton, input) {
 
     for (const state of statesStack) {
       // Transições para o caractere lido e transições vazias
-      const transitions = automaton.transitions.filter(t => t.from === state && (t.read === char || t.read === ''));
+      const transitions = automaton.transitions.filter(t => t.from === state && (t.read === char || t.read === '')); //vazio
       nextStates.push(...transitions.map(t => t.to));
     }
 
