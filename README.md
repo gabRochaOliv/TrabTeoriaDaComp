@@ -42,32 +42,37 @@ Como também definido no "arquivo_do_automato.aut" o estado inicial o estado fin
 
 Sendo assim, fornecido no "arquivo_de_saida.out" as seguintes saídas:
 
-1. aaaabbbb;1;0;0.172
+1. aaaabbbb;0;0;0.172
 2. aaaaaaaaaaa;1;1;0.218
-3. aaaabb;1;0;0.022
+3. aaaabb;0;0;0.022
 4. cccccccccccccc;0;0;0.007
 5. a;0;0;0.003
 
-### Simulador de Autômato Finito Não Determinístico com Movimento Vazio (AFNDε)
-### Descrição da Ferramenta
-Ela lê definições de autômatos a partir de arquivos JSON e entradas de teste de arquivos CSV. A diferença notável neste código é a capacidade do autômato para transições vazias, onde ele pode se mover sem consumir entrada. 
+## Simulador Geral 
+### Descrição da Ferramenta 
 
-### Seu Funcionamento
-A função `runAutomaton` executa o autômato em uma entrada, considerando transições regulares e transições vazias. Ao contrário dos autômatos finitos determinísticos, onde cada transição exige uma entrada específica, os AFNDs podem se mover sem consumir entrada em determinadas transições vazias. A principal diferença aqui está na incorporação das transições vazias no processo de execução, permitindo movimentos flexíveis do autômato. Essa ferramenta, como as anteriores, lê definições e entradas, simula a execução e registra os resultados em um arquivo de saída.
+O simulador geral lê qualquer tipo de autômato, tanto não deterministico, quanto determinístico, quanto com movimento vazio. Ela lê definições de autômatos a partir de arquivos JSON e entradas de teste de arquivos CSV, assim como os outros, mas a diferença notável neste código é a capacidade do autômato para transições vazias, onde ele pode se mover sem consumir entrada.  
 
-### Exemplo de uso 
+### Seu funcionamento 
+
+O funcionamento do código baseia-se na utilização de uma pilha para simular as transições do AFND, permitindo movimentos vazios. O movimento vazio é tratado dentro da lógica de filtragem das transições, fazendo com que o código verifique as transições para um determinado estado e caractere de entrada, incluindo a transições em que o caractere de leitura `t.read` é igual ao caractere atual `char` ou onde o caractere de leitura é vazio `''`. Esta condição é o ponto crucial que permite ao autômato realizar o movimento vazio. 
+
+### Exemplo de uso
 Assim como também foi definido nas outras duas ferramentas o "arquivo_do_automato.aut" contendo o estado inicial o estado final e as transições, ele também faz o teste com os seguintes caracteres inseridos no "arquivo_de_testes.in":
-1. aaaabbbb;1
+
+1. aaaabbbba;1
 2. aaaaaaaaaaa;1
-3. aaaabb;1
+3. aaaabba;1
 4. cccccccccccccc;0
-5. a;0
+5. aa;1
+6. aaaaabbb;0
 
 Sendo assim, também fornecido no "arquivo_de_saida.out" as seguintes saídas:
 
-1. aaaabbbb;1;0;0.431
-2. aaaaaaaaaaa;1;0;0.060
-3. aaaabb;1;0;0.032
-4. cccccccccccccc;0;0;0.011
-5. a;0;0;0.003
+1. aaaabbbba;1;1;0.452
+2. aaaaaaaaaaa;1;1;0.066
+3. aaaabba;1;1;0.043
+4. cccccccccccccc;0;0;0.012
+5. aa;1;1;0.009
+6. aaaaabbb;0;0;0.042
 
